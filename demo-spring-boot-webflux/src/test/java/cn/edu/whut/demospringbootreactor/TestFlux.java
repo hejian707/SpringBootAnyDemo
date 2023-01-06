@@ -1,6 +1,8 @@
 package cn.edu.whut.demospringbootreactor;
 
 import org.junit.jupiter.api.Test;
+import org.reactivestreams.Subscription;
+import reactor.core.publisher.BaseSubscriber;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 
@@ -11,17 +13,20 @@ import java.util.function.Consumer;
  * @Date: 2022/12/30 14:27
  */
 
-class TestFlux {
+public class TestFlux {
+
 
     @Test
     void testGgenerate() {
-        Flux.generate(
+        BaseSubscriber<String> subscriber = new SampleSubscriber();
+        Flux<String> flux = Flux.generate(
                 () -> 1,  // Callable
                 (state, sink) -> {    //BiFunction
                     sink.next("3 x " + state + " = " + 3 * state);
                     if (state == 10) sink.complete();
                     return state + 1;
-                }).subscribe(System.out::println);
+                });
+        flux.subscribe(subscriber);
     }
 
     @Test
@@ -70,6 +75,12 @@ class TestFlux {
 
     }
 
+}
 
+class SampleSubscriber extends BaseSubscriber<String> {
+    protected void hookOnSubscribe(Subscription subscription) {
+        System.out.println("OnSubscribe");
+        subscription.request(Long.MAX_VALUE);
+    }
 }
 
