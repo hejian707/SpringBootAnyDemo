@@ -1,25 +1,20 @@
 package cn.edu.whut.demospringbootreactor;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
-import reactor.core.publisher.SynchronousSink;
 
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 /**
  * @Author: hejian1@kingsoft.com
  * @Date: 2022/12/30 14:27
  */
-@SpringBootTest
-public class TestFlux {
+
+class TestFlux {
 
     @Test
-    void testGenerate() {
+    void testGgenerate() {
         Flux.generate(
                 () -> 1,  // Callable
                 (state, sink) -> {    //BiFunction
@@ -30,7 +25,7 @@ public class TestFlux {
     }
 
     @Test
-    void testFluxCreate() {
+    public void testFluxCreate() {
         //这个Flux创建和使用just方法本质没有区别，写死了生成的数据，不能体现出create的作用
         Flux.create(sink -> {
             for (int i = 0; i < 10; i++) {
@@ -42,7 +37,7 @@ public class TestFlux {
 
     FluxSink<String> outSink;
     @Test
-    public void testFluxCreate1() {
+    void testFluxCreate1() {
         Flux<String> f = Flux.create(sink -> {
             //将 sink 开放出去
             outSink = sink;
@@ -78,7 +73,3 @@ public class TestFlux {
 
 }
 
-interface MyEventListener<T> {
-    void onDataChunk(List<T> chunk);
-    void processComplete();
-}
