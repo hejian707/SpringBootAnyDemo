@@ -1,4 +1,4 @@
-package cn.edu.whut.demospringboothikaricp;
+package cn.edu.whut.demospringboothikaricp.autoconfiguration;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

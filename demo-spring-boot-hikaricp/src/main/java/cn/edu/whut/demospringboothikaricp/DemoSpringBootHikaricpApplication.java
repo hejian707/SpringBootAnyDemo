@@ -1,10 +1,9 @@
 package cn.edu.whut.demospringboothikaricp;
 
+import cn.edu.whut.demospringboothikaricp.autoconfiguration.MyHikari;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Connection;
 import java.sql.SQLException;
