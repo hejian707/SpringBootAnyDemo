@@ -1,0 +1,10 @@
+#spring:
+#  datasource:
+#    asdf:
+#      url: jdbc:mysql://192.168.175.10:3306/dts?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#      username: root
+#      password: root
+#    test2:
+#      url: jdbc:mysql://192.168.175.10:3306/dts?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#      username: root
+#      password: root

@@ -1,5 +1,7 @@
 package cn.edu.whut.demospringboothikaricp.autoconfiguration;
 
+import cn.edu.whut.demospringboothikaricp.mapper.UserMapper;
+import cn.edu.whut.demospringboothikaricp.model.User;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,4 +18,6 @@ public class MyHikari {
 
     @Autowired
     private DataSource dataSource;
+
+
 }
