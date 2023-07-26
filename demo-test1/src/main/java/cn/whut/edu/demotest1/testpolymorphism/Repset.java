@@ -1,6 +1,7 @@
 package cn.whut.edu.demotest1.testpolymorphism;
 
 import lombok.Data;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,8 +10,13 @@ import org.springframework.stereotype.Service;
  */
 @Data
 @Service(value = "repset")
+@Order(0)
 public class Repset extends AbsClass{
-    private String type = "repset";
+
+    @Override
+    public String getType() {
+        return "repset";
+    }
 
     @Override
     public void method1() {

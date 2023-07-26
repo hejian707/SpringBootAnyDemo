@@ -1,6 +1,7 @@
 package cn.whut.edu.demotest1.testpolymorphism;
 
 import lombok.Data;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,9 +10,14 @@ import org.springframework.stereotype.Service;
  */
 @Data
 @Service(value = "cluster")
+@Order(1)
 public class Cluster extends AbsClass{
 
-    private String type = "cluster";
+    @Override
+    public String getType() {
+        return "cluster";
+    }
+
     @Override
     public void method1() {
         System.out.println("Cluster method1");

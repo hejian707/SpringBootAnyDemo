@@ -16,7 +16,7 @@ import java.util.*;
  */
 @Data
 @Component(value = "serviceFactory")
-public class ServiceFactory implements ApplicationContextAware {
+public class ServiceFactory{
 
     @Autowired
     private Map<String, InterfaceClass> serviceMap= new HashMap<>();
@@ -25,10 +25,10 @@ public class ServiceFactory implements ApplicationContextAware {
     @Autowired
     private List<InterfaceClass> serviceList;
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        serviceMap = applicationContext.getBeansOfType(InterfaceClass.class);
-    }
+//    @Override
+//    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+//        serviceMap = applicationContext.getBeansOfType(InterfaceClass.class);
+//    }
 
 //    @Autowired
 //    public ServiceFactory(Set<InterfaceClass> serviceSet) {
@@ -39,7 +39,12 @@ public class ServiceFactory implements ApplicationContextAware {
         return serviceMap;
     }
 
-//    public InterfaceClass byType(String type) {
-//        serviceSet.stream().findFirst()
-//    }
+    public InterfaceClass byType(String type) {
+        for (InterfaceClass service : serviceSet) {
+            if (service.getType().equals(type)) {
+                return service;
+            }
+        }
+        return null;
+    }
 }
