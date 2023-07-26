@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hjt</groupId>
-    <artifactId>springboot-project-demo</artifactId>
+    <artifactId>springboot-anyDemo</artifactId>
     <packaging>pom</packaging>
     <version>1.0.4.RELEASE</version>
     <description>hjt demo 案例</description>
@@ -44,7 +44,7 @@
         <module>demo-spring-boot-repeatSubmit</module>
     </modules>
 
-    <name>spring-boot-project-demo</name>
+    <name>spring-boot-anyDemo</name>
     <dependencies>
         <!--Lombok-->
         <dependency>
